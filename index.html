@@ -11,16 +11,18 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="noise"></div>
+  <a class="skip-link" href="#main-content">К содержимому</a>
+  <div class="noise" aria-hidden="true"></div>
   <header class="header">
     <a class="brand" href="#top" aria-label="NARÉ, на главную"><span class="brand-mark">♢</span><strong>NARÉ</strong><small>COFFEE</small></a>
-    <nav class="nav" aria-label="Основная навигация">
-      <a href="#collection">Коллекция</a><a href="#story">Философия</a><a href="#equipment">Оборудование</a>
+    <nav class="nav" id="main-nav" aria-label="Основная навигация">
+      <a href="#top">Главная</a><a href="#coffee">Кофе</a><a href="#sweets">Конфеты</a><a href="#equipment-catalog">Оборудование</a><a href="#fortune">Гадание на кофе</a><a href="#story">О бренде</a>
     </nav>
-    <div class="actions"><button class="icon-button" aria-label="Поиск">⌕</button><button class="cart" aria-label="Корзина">Корзина <span>0</span></button><button class="menu" aria-label="Открыть меню">Меню</button></div>
+    <div class="actions"><button class="icon-button" aria-label="Поиск">⌕</button><button class="cart" aria-label="Корзина">Корзина <span>0</span></button><button class="menu" aria-label="Открыть меню" aria-controls="main-nav" aria-expanded="false">Меню</button></div>
   </header>
 
-  <main id="top">
+  <main id="main-content">
+  <div data-page="home" id="top">
     <section class="hero">
       <div class="hero-glow"></div>
       <div class="hero-copy reveal">
@@ -46,23 +48,71 @@
     <section class="manifesto" id="story">
       <p class="section-number">01 / О NARÉ</p>
       <div><h2>В каждой чашке —<br><em>история происхождения</em></h2><p>Мы работаем напрямую с фермерами и выбираем только редкие лоты. Бережная обжарка раскрывает характер каждого зерна — от цветочной лёгкости Эфиопии до шоколадной глубины Бразилии.</p><a class="text-link" href="#values">Наша философия <span>→</span></a></div>
-      <aside><b>100%</b><span>арабика<br>урожая 2025</span></aside>
+      <aside><b>NARÉ</b><span>арабика · робуста<br>авторские смеси</span></aside>
     </section>
 
     <section class="collection" id="collection">
-      <div class="section-head"><div><p class="eyebrow"><span></span> Избранное</p><h2>Коллекция <em>NARÉ</em></h2></div><div class="slider-buttons"><button aria-label="Назад">←</button><button aria-label="Вперёд">→</button></div></div>
-      <div class="products">
-        <article class="product"><span class="tag">Бестселлер</span><div class="mini-pack red"><small>NARÉ</small><b>ETHIOPIA</b><i>№ 01</i></div><div class="product-info"><p>Эфиопия · Светлая обжарка</p><h3>Yirgacheffe</h3><span>Цветы · бергамот · мёд</span><div><b>1 490 ₽</b><button class="add">Добавить +</button></div></div></article>
-        <article class="product"><div class="mini-pack gold"><small>NARÉ</small><b>BRAZIL</b><i>№ 02</i></div><div class="product-info"><p>Бразилия · Средняя обжарка</p><h3>Fazenda</h3><span>Шоколад · орех · карамель</span><div><b>1 290 ₽</b><button class="add">Добавить +</button></div></div></article>
-        <article class="product"><span class="tag">Новый лот</span><div class="mini-pack wine"><small>NARÉ</small><b>COLOMBIA</b><i>№ 03</i></div><div class="product-info"><p>Колумбия · Средняя обжарка</p><h3>El Diviso</h3><span>Вишня · какао · специи</span><div><b>1 590 ₽</b><button class="add">Добавить +</button></div></div></article>
-      </div>
+      <div class="section-head"><div><p class="eyebrow"><span></span> Избранное</p><h2>Коллекция <em>NARÉ</em></h2></div></div>
+      <p class="section-intro">Выберите свой кофе — от цветочной лёгкости до насыщенного эспрессо.</p>
+      <div class="products featured-products" id="featured-coffee"></div>
+      <a class="button outline" href="#coffee">Смотреть весь кофе <span>↗</span></a>
     </section>
 
-    <section class="equipment" id="equipment"><div class="equipment-visual"><div class="machine"><div class="machine-top">NARÉ</div><div class="dial"></div><div class="group"></div><div class="machine-base"></div></div></div><div class="equipment-copy"><p class="section-number">02 / ОБОРУДОВАНИЕ</p><h2>Точность<br><em>в каждой детали</em></h2><p>Оборудование, которому доверяют бариста. От ручных кофемолок до профессиональных эспрессо-машин — всё для безупречного результата.</p><a class="button outline" href="#">Смотреть оборудование <span>↗</span></a></div></section>
+    <section class="equipment" id="equipment"><div class="equipment-visual"><div class="machine"><div class="machine-top">NARÉ</div><div class="dial"></div><div class="group"></div><div class="machine-base"></div></div></div><div class="equipment-copy"><p class="section-number">02 / ОБОРУДОВАНИЕ</p><h2>Точность<br><em>в каждой детали</em></h2><p>Оборудование, которому доверяют бариста. От ручных кофемолок до профессиональных эспрессо-машин — всё для безупречного результата.</p><a class="button outline" href="#equipment-catalog">Смотреть всё оборудование <span>↗</span></a></div></section>
+
+    <section class="collection home-equipment">
+      <div class="section-head"><div><p class="eyebrow"><span></span> Для вашего ритуала</p><h2>Выбор <em>бариста</em></h2></div></div>
+      <div class="products featured-products" id="featured-equipment"></div>
+    </section>
+    <section class="collection quiz-section" id="quiz">
+      <p class="eyebrow"><span></span> Три шага к своему вкусу</p>
+      <h2>Какой кофе подойдёт<br><em>именно вам?</em></h2>
+      <form id="coffee-quiz">
+        <div class="quiz-questions">
+          <fieldset><legend>01 / Какой вкус вам нравится?</legend><div class="choice-group" id="quiz-tastes"></div></fieldset>
+          <fieldset><legend>02 / Как вы готовите кофе?</legend><div class="choice-group" id="quiz-methods"></div></fieldset>
+          <fieldset><legend>03 / Какую крепость предпочитаете?</legend><div class="choice-group" id="quiz-strength"></div></fieldset>
+        </div>
+        <button class="button" type="submit">Подобрать кофе <span>↗</span></button>
+        <button class="text-link" type="reset">Начать заново</button>
+      </form>
+      <div id="quiz-results" hidden><h3 class="display-title" tabindex="-1">Мы рекомендуем вам</h3><p class="section-intro" id="quiz-explanation"></p><div class="products"></div></div>
+    </section>
+    <section class="equipment sweets-banner">
+      <div class="sweets-visual"><img src="assets/nare-sweets.webp" srcset="assets/nare-sweets-small.webp 540w, assets/nare-sweets.webp 1086w" sizes="(max-width:600px) 85vw, 40vw" alt="Фирменная коробка NARÉ SWEETS в чёрном, бордовом и золотом" width="1086" height="1448" loading="lazy"></div>
+      <div class="equipment-copy"><p class="section-number">03 / NARÉ SWEETS</p><h2>Конфеты<br><em>ручной работы</em></h2><p>Изысканные сладости, созданные для идеального сочетания с кофе.</p><a class="button outline" href="#sweets">Выбрать конфеты <span>↗</span></a></div>
+    </section>
+    <section class="collection" id="pairing"><p class="eyebrow"><span></span> Кофе + конфеты</p><h2>Идеальная <em>пара</em></h2><label class="field pairing-select">Выберите кофе<select id="pairing-coffee"></select></label><div id="pairing-result"></div></section>
+    <section class="manifesto" id="values"><p class="section-number">04 / КОФЕЙНЫЙ РИТУАЛ</p><div><h2>Вкус начинается<br><em>с внимания</em></h2><p>Подберите зерно под свой способ приготовления. Смелите перед завариванием, взвесьте порцию и дайте себе время почувствовать аромат. Для первого знакомства начните с 15 г кофе на 250 мл воды в фильтре, затем меняйте рецепт по своему вкусу.</p><a class="text-link" href="#quiz">Найти свой вкус <span>→</span></a></div><aside><b>15 г</b><span>кофе на 250 мл<br>для фильтра</span></aside></section>
+    <section class="collection fortune-teaser"><p class="eyebrow"><span></span> Скоро в NARÉ</p><h2>История<br><em>на дне чашки</em></h2><p class="section-intro">Ваша чашка может рассказать больше, чем кажется.</p><a class="button outline" href="#fortune">Узнать больше <span>↗</span></a></section>
+  </div>
+
+  <section data-page="coffee" class="collection catalog-page" hidden>
+    <a class="text-link" href="#top">Главная / Кофе</a><p class="eyebrow"><span></span> Коллекция NARÉ</p><h1 class="page-title">Выберите <em>свой кофе</em></h1><p class="section-intro">Арабика, робуста, авторские смеси и декаф. Ваш вкус — ваш ритуал.</p><p class="catalog-notice">Демонстрационный каталог. Цены и наличие приведены для знакомства с ассортиментом.</p>
+    <div id="coffee-catalog" class="catalog" data-category="coffee"></div>
+  </section>
+  <section data-page="sweets" class="catalog-page" hidden>
+    <div class="collection sweets-intro"><div><a class="text-link" href="#top">Главная / Конфеты</a><p class="eyebrow"><span></span> NARÉ SWEETS</p><h1 class="page-title">Конфеты<br><em>ручной работы</em></h1><p class="section-intro">Изысканные сладости, созданные для идеального сочетания с кофе.</p><a class="text-link" href="#sweets-products">Открыть коллекцию <span>↓</span></a></div><img src="assets/nare-sweets.webp" srcset="assets/nare-sweets-small.webp 540w, assets/nare-sweets.webp 1086w" sizes="(max-width:600px) 85vw, 40vw" alt="Подарочная упаковка NARÉ SWEETS" width="1086" height="1448" loading="lazy"></div>
+    <div class="collection" id="sweets-products"><h2>Коллекция <em>SWEETS</em></h2><p class="catalog-notice">Демонстрационные позиции и составы. Изображения конфет иллюстративные; фирменная упаковка — на предоставленной фотографии. Перед покупкой уточняйте состав и аллергены.</p><div id="sweets-catalog" class="catalog" data-category="sweets"></div></div>
+  </section>
+  <section data-page="equipment" class="collection catalog-page" hidden>
+    <a class="text-link" href="#top">Главная / Оборудование</a><p class="eyebrow"><span></span> Точность в каждой детали</p><h1 class="page-title">Инструменты<br><em>вашего ритуала</em></h1><p class="section-intro">От первой турки до домашней кофейной станции.</p><p class="catalog-notice">Демонстрационные модели, цены и характеристики. Предметные иллюстрации не являются фотографиями серийных моделей.</p><div id="equipment-catalog" class="catalog" data-category="equipment"></div>
+  </section>
+  <section data-page="fortune" class="collection catalog-page fortune-page" hidden>
+    <a class="text-link" href="#top">Главная / Гадание на кофе</a><p class="eyebrow"><span></span> Функция скоро появится</p><h1 class="page-title">Гадание<br><em>на кофейной гуще</em></h1><p class="fortune-subtitle">Иногда после последнего глотка история только начинается.</p><p class="section-intro">Скоро здесь появится возможность загрузить фотографию кофейной гущи и получить персональную интерпретацию символов вашей чашки.</p>
+    <div class="coming-soon" aria-label="Будущая функция"><button class="button outline" disabled aria-describedby="fortune-status">Загрузить фотографию чашки</button><p id="fortune-status">Функция скоро появится</p></div>
+    <h2>Как это <em>будет работать</em></h2><ol class="fortune-steps"><li><b>01</b><h3>Выпейте кофе</h3></li><li><b>02</b><h3>Сфотографируйте узор кофейной гущи</h3></li><li><b>03</b><h3>Загрузите фотографию</h3></li><li><b>04</b><h3>Получите интерпретацию своей чашки</h3></li></ol>
+  </section>
+  <noscript><p class="catalog-notice">Для каталога, подбора кофе и корзины включите JavaScript. Связаться с брендом: hello@nare.coffee.</p></noscript>
   </main>
 
   <footer><a class="brand footer-brand" href="#top"><strong>NARÉ</strong><small>COFFEE</small></a><p>Кофе, который становится частью вашего ритуала.</p><div><a href="#">Instagram</a><a href="#">Telegram</a><a href="mailto:hello@nare.coffee">hello@nare.coffee</a></div><small>© 2026 NARÉ Coffee</small></footer>
-  <div class="toast" role="status">Добавлено в корзину</div>
+  <dialog id="quick-view" class="quick-view" aria-labelledby="quick-title"><button class="dialog-close" data-close aria-label="Закрыть просмотр">×</button><div id="quick-content"></div><p class="dialog-notice" role="status" aria-live="polite"></p></dialog>
+  <dialog id="side-cart" class="side-cart" aria-labelledby="cart-title"><div class="cart-heading"><h2 id="cart-title">Ваша <em>корзина</em></h2><button class="dialog-close" data-close aria-label="Закрыть корзину">×</button></div><div id="cart-items"></div><div class="cart-summary"><p>Итого <b id="cart-total">0 ₽</b></p><small>Без учёта доставки. Демонстрационный заказ.</small><button class="button" id="checkout-button">Оформить заказ <span>↗</span></button></div>
+    <form id="checkout-form" hidden><h3 class="display-title" tabindex="-1">Подготовить заявку</h3><p class="section-intro">Онлайн-оплата и отправка заказов пока не подключены. Вы можете скачать состав корзины и передать его менеджеру. Скачивание не оформляет заказ.</p><label class="field">Ваше имя (необязательно)<input name="customer" autocomplete="name" maxlength="80"></label><label class="field">Комментарий (необязательно)<textarea name="comment" rows="3" maxlength="500"></textarea></label><button class="button" type="submit">Скачать заявку</button></form>
+    <p class="dialog-notice" role="status" aria-live="polite"></p>
+  </dialog>
+  <div class="toast" role="status" aria-live="polite"></div>
   <script src="script.js"></script>
 </body>
 </html>
