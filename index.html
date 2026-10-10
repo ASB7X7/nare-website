@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="fortune.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">К содержимому</a>
@@ -84,7 +85,7 @@
     </section>
     <section class="collection" id="pairing"><p class="eyebrow"><span></span> Кофе + конфеты</p><h2>Идеальная <em>пара</em></h2><label class="field pairing-select">Выберите кофе<select id="pairing-coffee"></select></label><div id="pairing-result"></div></section>
     <section class="manifesto" id="values"><p class="section-number">04 / КОФЕЙНЫЙ РИТУАЛ</p><div><h2>Вкус начинается<br><em>с внимания</em></h2><p>Подберите зерно под свой способ приготовления. Смелите перед завариванием, взвесьте порцию и дайте себе время почувствовать аромат. Для первого знакомства начните с 15 г кофе на 250 мл воды в фильтре, затем меняйте рецепт по своему вкусу.</p><a class="text-link" href="#quiz">Найти свой вкус <span>→</span></a></div><aside><b>15 г</b><span>кофе на 250 мл<br>для фильтра</span></aside></section>
-    <section class="collection fortune-teaser"><p class="eyebrow"><span></span> Скоро в NARÉ</p><h2>История<br><em>на дне чашки</em></h2><p class="section-intro">Ваша чашка может рассказать больше, чем кажется.</p><a class="button outline" href="#fortune">Узнать больше <span>↗</span></a></section>
+    <section class="collection fortune-teaser"><p class="eyebrow"><span></span> Ритуалы NARÉ</p><h2>История<br><em>на дне чашки</em></h2><p class="section-intro">Ваша чашка может рассказать больше, чем кажется.</p><a class="button outline" href="#fortune">Открыть ритуал <span>↗</span></a></section>
   </div>
 
   <section data-page="coffee" class="collection catalog-page" hidden>
@@ -99,9 +100,25 @@
     <a class="text-link" href="#top">Главная / Оборудование</a><p class="eyebrow"><span></span> Точность в каждой детали</p><h1 class="page-title">Инструменты<br><em>вашего ритуала</em></h1><p class="section-intro">От первой турки до домашней кофейной станции.</p><p class="catalog-notice">Демонстрационные модели, цены и характеристики. Предметные иллюстрации не являются фотографиями серийных моделей.</p><div id="equipment-catalog" class="catalog" data-category="equipment"></div>
   </section>
   <section data-page="fortune" class="collection catalog-page fortune-page" hidden>
-    <a class="text-link" href="#top">Главная / Гадание на кофе</a><p class="eyebrow"><span></span> Функция скоро появится</p><h1 class="page-title">Гадание<br><em>на кофейной гуще</em></h1><p class="fortune-subtitle">Иногда после последнего глотка история только начинается.</p><p class="section-intro">Скоро здесь появится возможность загрузить фотографию кофейной гущи и получить персональную интерпретацию символов вашей чашки.</p>
-    <div class="coming-soon" aria-label="Будущая функция"><button class="button outline" disabled aria-describedby="fortune-status">Загрузить фотографию чашки</button><p id="fortune-status">Функция скоро появится</p></div>
-    <h2>Как это <em>будет работать</em></h2><ol class="fortune-steps"><li><b>01</b><h3>Выпейте кофе</h3></li><li><b>02</b><h3>Сфотографируйте узор кофейной гущи</h3></li><li><b>03</b><h3>Загрузите фотографию</h3></li><li><b>04</b><h3>Получите интерпретацию своей чашки</h3></li></ol>
+    <a class="text-link" href="#top">Главная / Гадание на кофе</a><p class="eyebrow"><span></span> Ритуалы NARÉ</p><h1 class="page-title">Гадание<br><em>на кофейной гуще</em></h1><p class="fortune-subtitle">Иногда после последнего глотка история только начинается.</p><p class="section-intro">Сохраните мгновение после кофе. Узоры на дне чашки станут началом небольшой истории — только для вас.</p>
+    <div class="fortune-workspace">
+      <form id="fortune-form" class="fortune-panel">
+        <p class="eyebrow">01 / Ваша чашка</p>
+        <label class="fortune-upload" for="fortune-file"><span class="fortune-upload-symbol" aria-hidden="true">✧</span><strong>Выберите фотографию</strong><span>Снимите чашку сверху при мягком дневном свете</span><input id="fortune-file" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="fortune-file-help"></label>
+        <p id="fortune-file-help" class="fortune-note">JPG, PNG или WebP · до 5 МБ</p>
+        <div id="fortune-preview" hidden><img id="fortune-photo" alt="Предпросмотр вашей чашки"><button id="fortune-remove" class="text-link" type="button">Убрать фотографию</button></div>
+        <label class="fortune-consent"><input id="fortune-consent" type="checkbox" required><span>Согласен передать фотографию сервису Jenova и его поставщику ИИ для получения интерпретации. <a href="https://www.jenova.ai/ru/platform/docs" target="_blank" rel="noopener noreferrer">Об обработке данных</a></span></label>
+        <button id="fortune-submit" class="button" type="submit" disabled>Прочитать мою чашку <span aria-hidden="true">↗</span></button>
+        <p id="fortune-status" class="fortune-note" role="status" aria-live="polite">Подключение гадания готовится. Фотография пока остаётся на вашем устройстве.</p>
+      </form>
+      <section class="fortune-panel fortune-result" aria-labelledby="fortune-result-title" aria-busy="false">
+        <p class="eyebrow">02 / История в узорах</p><h2 id="fortune-result-title" tabindex="-1">О чём расскажет<br><em>ваша чашка?</em></h2>
+        <p id="fortune-placeholder" class="section-intro">Выберите фотографию — здесь появится символическое чтение от NARÉ.</p>
+        <div id="fortune-answer" hidden></div><button id="fortune-copy" class="text-link" type="button" hidden>Скопировать послание</button>
+        <p class="fortune-note">Творческая интерпретация ИИ для развлечения и размышления. Не предсказание будущего.</p>
+      </section>
+    </div>
+    <h2>Маленький <em>ритуал</em></h2><ol class="fortune-steps"><li><b>01</b><h3>Выпейте кофе</h3></li><li><b>02</b><h3>Сфотографируйте узор кофейной гущи</h3></li><li><b>03</b><h3>Загрузите фотографию</h3></li><li><b>04</b><h3>Получите интерпретацию своей чашки</h3></li></ol>
   </section>
   <noscript><p class="catalog-notice">Для каталога, подбора кофе и корзины включите JavaScript. Связаться с брендом: hello@nare.coffee.</p></noscript>
   </main>
@@ -114,5 +131,7 @@
   </dialog>
   <div class="toast" role="status" aria-live="polite"></div>
   <script src="script.js"></script>
+  <script src="fortune-config.js"></script>
+  <script src="fortune.js"></script>
 </body>
 </html>

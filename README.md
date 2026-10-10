@@ -16,7 +16,7 @@ Existing vanilla HTML/CSS/JavaScript storefront, extended without changing frame
 
 Products, prices, stock and compositions are demonstration content and are identified as such. Actual ordering, payments, delivery calculation and stock synchronization are not connected. Checkout exports a local text request; it does not transmit personal information or claim an order was placed.
 
-The fortune page is a static coming-soon page. Its upload button is technically disabled. There is no file input, upload, AI, API, image analysis or generated prediction. The `.coming-soon` region is the future integration point.
+The fortune page has local photo preview and a Jenova integration through `server/server.mjs`. Until an HTTPS backend URL, server-only API key and agent slug are configured, submission stays disabled. No canned prediction is presented as AI. See [FORTUNE-SETUP.md](FORTUNE-SETUP.md) for setup and remaining activation steps. GitHub Pages continues to serve the storefront; Node runs separately.
 
 Original social links had `href="#"`; they remain unchanged pending real brand account URLs.
 
@@ -31,6 +31,6 @@ All generated assets used the built-in ImageGen tool. Generation prompts are in 
 
 ## Verification
 
-Serve this directory over HTTP and open `tests/browser.html`, then press **Run checks**. The dependency-free browser suite checks filters, sorting, search, variants, cart totals and stock limits, atomic pair additions, recommendations, persistence, static fortune content, asset loading and layouts at 320, 390, 768, 1024 and 1440 px. It restores the prior local cart when it finishes. Run only against a local development copy.
+Run `npm start` with Node 22+ and open `tests/browser.html`, then press **Run checks**. The dependency-free browser suite checks filters, sorting, search, variants, cart totals and stock limits, atomic pair additions, recommendations, persistence, fortune preparation mode and local photo validation/preview, asset loading and layouts at 320, 390, 768, 1024 and 1440 px. It restores the prior local cart when it finishes. Run only against a local development copy without Jenova credentials. `npm test` runs server integration tests with a mocked provider; no paid API calls occur.
 
 Additional checks: `node --check script.js`, `git diff --check`, visual comparison of the original and expanded site, and keyboard checks of the native dialogs. There is no framework build to run.
