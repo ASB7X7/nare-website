@@ -17,7 +17,8 @@
   const local = ['localhost', '127.0.0.1'].includes(location.hostname);
   let api = '';
   try {
-    const url = new URL(config || (local ? location.origin : ''));
+    // Local previews and tests must never contact the production service.
+    const url = new URL(local ? location.origin : config);
     if (url.protocol === 'https:' || (local && url.origin === location.origin)) api = url.origin;
   } catch { /* Keep unavailable until a valid backend is configured. */ }
   let file = null, objectURL = '', ready = false, busy = false, selection = 0;
@@ -33,8 +34,9 @@
   }
   async function checkService() {
     if (!api) return;
+    say('Подключаем гадание. После перерыва сервер может запускаться около минуты…');
     try {
-      const res = await fetch(`${api}/api/fortune/status`, { signal: AbortSignal.timeout(12000), credentials: 'omit' });
+      const res = await fetch(`${api}/api/fortune/status`, { signal: AbortSignal.timeout(90000), credentials: 'omit' });
       const data = await res.json();
       ready = res.ok && data.ready === true;
       say(ready ? 'Выберите фото и подтвердите его отправку, чтобы начать.' : 'Гадание ещё подключается. Фотография остаётся на вашем устройстве.');
