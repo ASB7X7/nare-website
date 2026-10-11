@@ -1,0 +1,10 @@
+{
+  "name": "nare-website",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server/server.mjs",
+    "test": "node --test tests/fortune-server.test.mjs"
+  }
+}

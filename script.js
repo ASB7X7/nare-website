@@ -80,7 +80,7 @@ renderProducts($('#featured-equipment'), equipment.filter((p) => p.featured));
 
 // Hash routes preserve the original one-file static hosting architecture.
 const pageRoutes = { coffee: 'coffee', sweets: 'sweets', 'sweets-products': 'sweets', 'equipment-catalog': 'equipment', fortune: 'fortune' };
-const pageTitles = { home: 'NARÉ — кофе как искусство', coffee: 'Кофе — NARÉ', sweets: 'NARÉ SWEETS — конфеты ручной работы', equipment: 'Оборудование — NARÉ', fortune: 'Гадание на кофейной гуще — скоро в NARÉ' };
+const pageTitles = { home: 'NARÉ — кофе как искусство', coffee: 'Кофе — NARÉ', sweets: 'NARÉ SWEETS — конфеты ручной работы', equipment: 'Оборудование — NARÉ', fortune: 'Гадание на кофейной гуще — NARÉ' };
 const menu = $('.menu'); const nav = $('.nav');
 function closeMenu() { nav.classList.remove('mobile-open'); menu.setAttribute('aria-expanded', 'false'); menu.setAttribute('aria-label', 'Открыть меню'); }
 menu.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; nav.classList.toggle('mobile-open', open); menu.setAttribute('aria-expanded', String(open)); menu.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню'); });

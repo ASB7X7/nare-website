@@ -1,0 +1,27 @@
+.fortune-workspace { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:28px; margin:52px 0 100px; text-align:left; }
+.fortune-panel { min-width:0; padding:32px; border:1px solid var(--line); background:linear-gradient(145deg,#1b120e,var(--surface)); }
+.fortune-panel .eyebrow { margin:0 0 26px; }
+.fortune-upload { display:flex; flex-direction:column; align-items:center; gap:16px; padding:28px 20px; text-align:center; border:1px dashed #6b4c2e; cursor:pointer; }
+.fortune-upload:focus-within { outline:2px solid var(--gold); outline-offset:4px; }
+.fortune-upload strong { font:32px "Cormorant Garamond",serif; font-weight:400; }
+.fortune-upload>span:not(.fortune-upload-symbol) { color:var(--muted); font-size:12px; line-height:1.8; }
+.fortune-upload-symbol { font-size:52px; color:var(--gold); }
+.fortune-upload input { max-width:100%; color:var(--cream); font-size:12px; }
+.fortune-upload input::file-selector-button { border:1px solid var(--line); background:#261a12; color:var(--cream); padding:10px; cursor:pointer; margin-right:8px; }
+.fortune-note { color:var(--muted); font-size:12px; line-height:1.8; overflow-wrap:anywhere; }
+.fortune-consent { display:flex; align-items:flex-start; gap:12px; margin-top:26px; font-size:12px; line-height:1.8; color:#b7aa9c; }
+.fortune-consent input { flex-shrink:0; margin-top:5px; accent-color:var(--gold); }
+.fortune-consent a { color:var(--gold); }
+.fortune-panel .button { width:100%; min-width:0; gap:10px; line-height:1.8; }
+.fortune-panel button:disabled { opacity:.45; cursor:not-allowed; }
+.fortune-panel .text-link { background:none; color:var(--gold); border:0; border-bottom:1px solid #534738; cursor:pointer; }
+#fortune-photo { display:block; margin-top:20px; width:100%; max-height:300px; object-fit:contain; background:#080706; }
+.fortune-result h2 { font-size:clamp(36px,3.8vw,60px); line-height:1.04; margin-bottom:24px; }
+.fortune-result { display:flex; flex-direction:column; }
+.fortune-result>.fortune-note { margin-top:auto; padding-top:32px; border-top:1px solid var(--line); }
+#fortune-answer { white-space:pre-wrap; overflow-wrap:anywhere; font-size:15px; line-height:1.95; margin-bottom:32px; }
+.fortune-result[aria-busy="true"] .eyebrow::after { content:" · · ·"; }
+.fortune-workspace [hidden] { display:none!important; }
+#fortune-result-title:focus { outline:none; }
+@media(max-width:800px) { .fortune-workspace { grid-template-columns:minmax(0,1fr); } }
+@media(max-width:480px) { .fortune-panel { padding:22px 16px; } .fortune-upload { padding:22px 10px; } .fortune-upload strong { font-size:28px; } }
